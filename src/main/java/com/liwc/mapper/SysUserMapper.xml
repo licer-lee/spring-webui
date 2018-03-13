@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liwc.mapper.SysUserMapper">
+  <resultMap id="BaseResultMap" type="com.liwc.model.SysUser">
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="U_LOGIN_ID" jdbcType="VARCHAR" property="uLoginId" />
+    <result column="U_PASSWD" jdbcType="VARCHAR" property="uPasswd" />
+    <result column="U_NAME" jdbcType="VARCHAR" property="uName" />
+    <result column="U_ROLE" jdbcType="INTEGER" property="uRole" />
+    <result column="U_ORDER" jdbcType="INTEGER" property="uOrder" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, U_LOGIN_ID, U_PASSWD, U_NAME, U_ROLE, U_ORDER
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_USER
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from SYS_USER
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.liwc.model.SysUser">
+    insert into SYS_USER (ID, U_LOGIN_ID, U_PASSWD, 
+      U_NAME, U_ROLE, U_ORDER
+      )
+    values (#{id,jdbcType=INTEGER}, #{uLoginId,jdbcType=VARCHAR}, #{uPasswd,jdbcType=VARCHAR}, 
+      #{uName,jdbcType=VARCHAR}, #{uRole,jdbcType=INTEGER}, #{uOrder,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.liwc.model.SysUser">
+    insert into SYS_USER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="uLoginId != null">
+        U_LOGIN_ID,
+      </if>
+      <if test="uPasswd != null">
+        U_PASSWD,
+      </if>
+      <if test="uName != null">
+        U_NAME,
+      </if>
+      <if test="uRole != null">
+        U_ROLE,
+      </if>
+      <if test="uOrder != null">
+        U_ORDER,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uLoginId != null">
+        #{uLoginId,jdbcType=VARCHAR},
+      </if>
+      <if test="uPasswd != null">
+        #{uPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="uName != null">
+        #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="uRole != null">
+        #{uRole,jdbcType=INTEGER},
+      </if>
+      <if test="uOrder != null">
+        #{uOrder,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liwc.model.SysUser">
+    update SYS_USER
+    <set>
+      <if test="uLoginId != null">
+        U_LOGIN_ID = #{uLoginId,jdbcType=VARCHAR},
+      </if>
+      <if test="uPasswd != null">
+        U_PASSWD = #{uPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="uName != null">
+        U_NAME = #{uName,jdbcType=VARCHAR},
+      </if>
+      <if test="uRole != null">
+        U_ROLE = #{uRole,jdbcType=INTEGER},
+      </if>
+      <if test="uOrder != null">
+        U_ORDER = #{uOrder,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liwc.model.SysUser">
+    update SYS_USER
+    set U_LOGIN_ID = #{uLoginId,jdbcType=VARCHAR},
+      U_PASSWD = #{uPasswd,jdbcType=VARCHAR},
+      U_NAME = #{uName,jdbcType=VARCHAR},
+      U_ROLE = #{uRole,jdbcType=INTEGER},
+      U_ORDER = #{uOrder,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
