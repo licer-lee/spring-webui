@@ -26,13 +26,13 @@ public class SysMenuServiceTest {
 
 	
 	@Autowired
-	private SysMenuMapper mapper;
+	private SysMenuService service;
 	
 	
 	@Test
 	public void testFind() {
 		
-		SysMenu m = mapper.selectByPrimaryKey(1);
+		SysMenu m = service.selectByPrimaryKey(1);
 		
 		Assert.assertNotNull(m);
 		
@@ -41,7 +41,7 @@ public class SysMenuServiceTest {
 	@Test
 	public void testFindAll() {
 		
-		List<SysMenu> list = mapper.findAll();
+		List<SysMenu> list = service.findAll();
 		
 		Assert.assertEquals(list.size(), 15);
 	}
@@ -56,7 +56,7 @@ public class SysMenuServiceTest {
 		sm.setmParent(4);
 		sm.setmOrder(3);
 		
-		mapper.insert(sm);
+		service.insert(sm);
 		
 		
 	}

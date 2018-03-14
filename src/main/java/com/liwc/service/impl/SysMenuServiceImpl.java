@@ -1,13 +1,12 @@
 package com.liwc.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.liwc.mapper.SysMenuMapper;
+import com.liwc.message.AjaxMessage;
 import com.liwc.model.SysMenu;
 import com.liwc.service.SysMenuService;
 
@@ -18,37 +17,77 @@ public class SysMenuServiceImpl implements SysMenuService {
 	private SysMenuMapper mapper;
 	
 	
+
 	@Override
-	public SysMenu find(int id) {
+	public AjaxMessage deleteByPrimaryKey(Integer id) {
+		
+		int effectCount = mapper.deleteByPrimaryKey(id);;
+		
+		AjaxMessage am = new AjaxMessage();
+		am.setMsg("deleted!");
+		am.setContent(effectCount);
+		
+		return am;
+	}
+
+	@Override
+	public AjaxMessage insert(SysMenu record) {
+
+		int effectCount = mapper.insert(record);;
+		
+		AjaxMessage am = new AjaxMessage();
+		am.setMsg("操作成功");
+		am.setContent(record);
+		
+		return am;
+	}
+
+	@Override
+	public AjaxMessage insertSelective(SysMenu record) {
+
+		int effectCount = mapper.insertSelective(record);;
+		
+		AjaxMessage am = new AjaxMessage();
+		am.setMsg("操作成功");
+		am.setContent(record);
+		
+		return am;
+	}
+
+	@Override
+	public SysMenu selectByPrimaryKey(Integer id) {
+		
 		return mapper.selectByPrimaryKey(id);
 	}
 
 	@Override
+	public AjaxMessage updateByPrimaryKeySelective(SysMenu record) {
+
+		int effectCount = mapper.updateByPrimaryKeySelective(record);;
+		
+		AjaxMessage am = new AjaxMessage();
+		am.setMsg("操作成功");
+		am.setContent(record);
+		
+		return am;
+	}
+
+	@Override
+	public AjaxMessage updateByPrimaryKey(SysMenu record) {
+
+		int effectCount = mapper.updateByPrimaryKey(record);;
+		
+		AjaxMessage am = new AjaxMessage();
+		am.setMsg("操作成功");
+		am.setContent(record);
+		
+		return am;
+	}
+
+	@Override
 	public List<SysMenu> findAll() {
+		
 		return mapper.findAll();
-//		return mapper.;
-		
-	}
-
-	@Override
-	public void save(SysMenu t) {
-		int count = mapper.insert(t);
-	}
-
-	@Override
-	public Map<String, Object> delete(int id) {
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		int effectCount = mapper.deleteByPrimaryKey(id);;
-		map.put("msg", "deleted!");
-		map.put("effectCount", effectCount);
-		
-		return map;
-	}
-
-	@Override
-	public int updateById(SysMenu t) {
-		return mapper.updateByPrimaryKey(t);
 	}
 
 

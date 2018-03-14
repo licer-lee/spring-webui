@@ -53,6 +53,7 @@
 		from SYS_MENU p
 		left join SYS_MENU c on p.ID=c.M_PARENT
 		where p.M_LEVEL = 1
+		order by p.M_ORDER
 	</select>
 
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">

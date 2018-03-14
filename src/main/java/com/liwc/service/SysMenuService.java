@@ -1,21 +1,25 @@
 package com.liwc.service;
 
 import java.util.List;
-import java.util.Map;
 
+import com.liwc.message.AjaxMessage;
 import com.liwc.model.SysMenu;
 
 public interface SysMenuService {
 
 	
-	SysMenu find(int id);
+	AjaxMessage deleteByPrimaryKey(Integer id);
+
+	AjaxMessage insert(SysMenu record);
+
+	AjaxMessage insertSelective(SysMenu record);
+
+	SysMenu selectByPrimaryKey(Integer id);
+
+	AjaxMessage updateByPrimaryKeySelective(SysMenu record);
+
+	AjaxMessage updateByPrimaryKey(SysMenu record);
 
 	List<SysMenu> findAll();
-	
-	void save(SysMenu t);
-	
-	Map<String, Object> delete(int id);
-	
-	int updateById(SysMenu t);
 	
 }
