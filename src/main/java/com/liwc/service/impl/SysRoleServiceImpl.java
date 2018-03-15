@@ -5,16 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.liwc.mapper.SysMenuMapper;
+import com.liwc.mapper.SysRoleMapper;
 import com.liwc.message.AjaxMessage;
-import com.liwc.model.SysMenu;
-import com.liwc.service.SysMenuService;
+import com.liwc.model.SysRole;
+import com.liwc.service.SysRoleService;
 
 @Service
-public class SysMenuServiceImpl implements SysMenuService {
+public class SysRoleServiceImpl implements SysRoleService {
 
 	@Autowired
-	private SysMenuMapper mapper;
+	private SysRoleMapper mapper;
 
 	@Override
 	public AjaxMessage deleteByPrimaryKey(Integer id) {
@@ -29,7 +29,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 	}
 
 	@Override
-	public AjaxMessage insert(SysMenu record) {
+	public AjaxMessage insert(SysRole record) {
 
 		int effectCount = mapper.insert(record);
 
@@ -41,7 +41,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 	}
 
 	@Override
-	public AjaxMessage insertSelective(SysMenu record) {
+	public AjaxMessage insertSelective(SysRole record) {
 
 		int effectCount = mapper.insertSelective(record);
 
@@ -53,13 +53,13 @@ public class SysMenuServiceImpl implements SysMenuService {
 	}
 
 	@Override
-	public SysMenu selectByPrimaryKey(Integer id) {
+	public SysRole selectByPrimaryKey(Integer id) {
 
 		return mapper.selectByPrimaryKey(id);
 	}
 
 	@Override
-	public AjaxMessage updateByPrimaryKeySelective(SysMenu record) {
+	public AjaxMessage updateByPrimaryKeySelective(SysRole record) {
 
 		int effectCount = mapper.updateByPrimaryKeySelective(record);
 
@@ -71,7 +71,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 	}
 
 	@Override
-	public AjaxMessage updateByPrimaryKey(SysMenu record) {
+	public AjaxMessage updateByPrimaryKey(SysRole record) {
 
 		int effectCount = mapper.updateByPrimaryKey(record);
 
@@ -83,9 +83,9 @@ public class SysMenuServiceImpl implements SysMenuService {
 	}
 
 	@Override
-	public List<SysMenu> findAll() {
+	public List<SysRole> findAll() {
 
-		return mapper.findAll();
+		return mapper.selectAll();
 	}
 
 }

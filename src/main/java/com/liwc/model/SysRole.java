@@ -1,43 +1,45 @@
 package com.liwc.model;
 
-public class SysRole {
-    private Integer id;
+public class SysRole extends BaseModel {
 
-    private String rCode;
+	
+	private Integer id;
 
-    private String rName;
+	private String rCode;
 
-    private Integer rOrder;
+	private String rName;
 
-    public Integer getId() {
-        return id;
-    }
+	private Integer rOrder;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public String getrCode() {
-        return rCode;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setrCode(String rCode) {
-        this.rCode = rCode == null ? null : rCode.trim();
-    }
+	public String getrCode() {
+		return rCode;
+	}
 
-    public String getrName() {
-        return rName;
-    }
+	public void setrCode(String rCode) {
+		this.rCode = rCode == null ? null : rCode.trim();
+	}
 
-    public void setrName(String rName) {
-        this.rName = rName == null ? null : rName.trim();
-    }
+	public String getrName() {
+		return rName;
+	}
 
-    public Integer getrOrder() {
-        return rOrder;
-    }
+	public void setrName(String rName) {
+		this.rName = rName == null ? null : rName.trim();
+	}
 
-    public void setrOrder(Integer rOrder) {
-        this.rOrder = rOrder;
-    }
+	public Integer getrOrder() {
+		return rOrder;
+	}
+
+	public void setrOrder(Integer rOrder) {
+		this.rOrder = rOrder;
+	}
 }

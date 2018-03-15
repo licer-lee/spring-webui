@@ -5,17 +5,21 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.liwc.mapper.SysMenuMapper;
+import com.liwc.mapper.SysUserMapper;
 import com.liwc.message.AjaxMessage;
-import com.liwc.model.SysMenu;
-import com.liwc.service.SysMenuService;
+import com.liwc.model.SysUser;
+import com.liwc.service.SysUserService;
 
 @Service
-public class SysMenuServiceImpl implements SysMenuService {
+public class SysUserServiceImpl implements SysUserService {
 
 	@Autowired
-	private SysMenuMapper mapper;
+	private SysUserMapper mapper;
 
+	
+	
+	
+	
 	@Override
 	public AjaxMessage deleteByPrimaryKey(Integer id) {
 
@@ -29,7 +33,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 	}
 
 	@Override
-	public AjaxMessage insert(SysMenu record) {
+	public AjaxMessage insert(SysUser record) {
 
 		int effectCount = mapper.insert(record);
 
@@ -41,7 +45,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 	}
 
 	@Override
-	public AjaxMessage insertSelective(SysMenu record) {
+	public AjaxMessage insertSelective(SysUser record) {
 
 		int effectCount = mapper.insertSelective(record);
 
@@ -53,13 +57,13 @@ public class SysMenuServiceImpl implements SysMenuService {
 	}
 
 	@Override
-	public SysMenu selectByPrimaryKey(Integer id) {
+	public SysUser selectByPrimaryKey(Integer id) {
 
 		return mapper.selectByPrimaryKey(id);
 	}
 
 	@Override
-	public AjaxMessage updateByPrimaryKeySelective(SysMenu record) {
+	public AjaxMessage updateByPrimaryKeySelective(SysUser record) {
 
 		int effectCount = mapper.updateByPrimaryKeySelective(record);
 
@@ -71,7 +75,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 	}
 
 	@Override
-	public AjaxMessage updateByPrimaryKey(SysMenu record) {
+	public AjaxMessage updateByPrimaryKey(SysUser record) {
 
 		int effectCount = mapper.updateByPrimaryKey(record);
 
@@ -83,9 +87,9 @@ public class SysMenuServiceImpl implements SysMenuService {
 	}
 
 	@Override
-	public List<SysMenu> findAll() {
+	public List<SysUser> findAll() {
 
-		return mapper.findAll();
+		return mapper.selectAll();
 	}
 
 }

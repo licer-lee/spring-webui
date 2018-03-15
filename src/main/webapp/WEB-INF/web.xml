@@ -86,7 +86,7 @@
 		<location>/common/500.jsp</location>
 	</error-page>
 	<error-page>
-		<error-code>java.lang.Throwable</error-code>
+		<exception-type>java.lang.Throwable</exception-type>
 		<location>/common/error.jsp</location>
 	</error-page>
 	
