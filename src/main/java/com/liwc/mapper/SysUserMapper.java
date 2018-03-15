@@ -1,5 +1,7 @@
 package com.liwc.mapper;
 
+import java.util.List;
+
 import com.liwc.model.SysUser;
 
 public interface SysUserMapper {
@@ -10,6 +12,8 @@ public interface SysUserMapper {
     int insertSelective(SysUser record);
 
     SysUser selectByPrimaryKey(Integer id);
+    
+    List<SysUser> selectAll();
 
     int updateByPrimaryKeySelective(SysUser record);
 
